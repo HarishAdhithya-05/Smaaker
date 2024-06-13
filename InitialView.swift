@@ -37,7 +37,7 @@ struct InitialView: View {
                 Spacer()
                 
                 // Continue button
-                NavigationLink(destination: NextView()) {
+            //    NavigationLink(destination: CategoryView()) {
                     Text("Continue")
                         .frame(width: 330, height: 60)
                         .background(Color.orange)
@@ -50,7 +50,7 @@ struct InitialView: View {
             }
         }
     }
-}
+//}
 struct InitialView_Previews: PreviewProvider {
     static var previews: some View {
         InitialView()

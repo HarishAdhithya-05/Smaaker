@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		380B5DC62C19A1EB00D23C05 /* LocationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B5DC52C19A1EA00D23C05 /* LocationDataModel.swift */; };
 		3828B9122C16B78600B3B85B /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B9112C16B78600B3B85B /* InitialView.swift */; };
-		3828B9142C16B79200B3B85B /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B9132C16B79200B3B85B /* NextView.swift */; };
+		3828B9142C16B79200B3B85B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B9132C16B79200B3B85B /* CategoryView.swift */; };
 		3828B93D2C16CF5000B3B85B /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B93C2C16CF5000B3B85B /* QRViewController.swift */; };
 		3828B93F2C16CF7E00B3B85B /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B93E2C16CF7E00B3B85B /* QRScannerView.swift */; };
 		3828B9412C171F7500B3B85B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828B9402C171F7500B3B85B /* CameraView.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		380B5DC52C19A1EA00D23C05 /* LocationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataModel.swift; sourceTree = "<group>"; };
 		3828B9112C16B78600B3B85B /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
-		3828B9132C16B79200B3B85B /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
+		3828B9132C16B79200B3B85B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		3828B93C2C16CF5000B3B85B /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		3828B93E2C16CF7E00B3B85B /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		3828B9402C171F7500B3B85B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 				3828B93E2C16CF7E00B3B85B /* QRScannerView.swift */,
 				3828B93C2C16CF5000B3B85B /* QRViewController.swift */,
 				3828B9112C16B78600B3B85B /* InitialView.swift */,
-				3828B9132C16B79200B3B85B /* NextView.swift */,
+				3828B9132C16B79200B3B85B /* CategoryView.swift */,
 				386220FD2C142F49006F5D85 /* Smaaker1 */,
 				386220FC2C142F49006F5D85 /* Products */,
 			);
@@ -174,7 +174,7 @@
 				3828B9122C16B78600B3B85B /* InitialView.swift in Sources */,
 				3828B9412C171F7500B3B85B /* CameraView.swift in Sources */,
 				386221012C142F49006F5D85 /* ContentView.swift in Sources */,
-				3828B9142C16B79200B3B85B /* NextView.swift in Sources */,
+				3828B9142C16B79200B3B85B /* CategoryView.swift in Sources */,
 				3828B93F2C16CF7E00B3B85B /* QRScannerView.swift in Sources */,
 				386220FF2C142F49006F5D85 /* Smaaker1App.swift in Sources */,
 				3828B93D2C16CF5000B3B85B /* QRViewController.swift in Sources */,

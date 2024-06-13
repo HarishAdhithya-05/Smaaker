@@ -110,7 +110,7 @@ struct WelcomeView: View {
                         .padding(.horizontal)
 
                     
-/*                  Text("\(location.locationDetail.businessName)")
+                  Text("\(location.locationDetail.businessName)")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -118,7 +118,6 @@ struct WelcomeView: View {
                     Text(" \(location.locationDetail.address.addressLine1), \(location.locationDetail.address.locality), \(location.locationDetail.address.country) ")
                         .fontWeight(.bold)
                       .frame(width: 331, height: 189)
-                    */
                     
                     // Add other location properties as needed...
                 } else {
@@ -145,11 +144,11 @@ struct WelcomeView: View {
                 if let scannedMerchantId = UserDefaults.standard.string(forKey: "merchantId") {
                     merchantViewModel.fetchMerchantDetails(for: scannedMerchantId)
                 }
-                
                 if let locationId = UserDefaults.standard.string(forKey: "locationId"),
                    let outpost = UserDefaults.standard.string(forKey: "outpost") {
                     locationViewModel.fetchLocationDetails(outpost: outpost)
                 }
+                
             }
             .navigationBarBackButtonHidden(false) // Ensure the back button is shown
         }
