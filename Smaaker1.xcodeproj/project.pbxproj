@@ -19,6 +19,7 @@
 		386221032C142F4A006F5D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386221022C142F4A006F5D85 /* Assets.xcassets */; };
 		386221062C142F4A006F5D85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386221052C142F4A006F5D85 /* Preview Assets.xcassets */; };
 		38E02DA22C1955AB0099028D /* MerchantDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E02DA12C1955AB0099028D /* MerchantDataModel.swift */; };
+		38FF1ADF2C1AA3DC007176F4 /* CategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FF1ADE2C1AA3DC007176F4 /* CategoryDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		386221052C142F4A006F5D85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		387CCDDF2C146A9B00873478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		38E02DA12C1955AB0099028D /* MerchantDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantDataModel.swift; sourceTree = "<group>"; };
+		38FF1ADE2C1AA3DC007176F4 /* CategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		386220F22C142F49006F5D85 = {
 			isa = PBXGroup;
 			children = (
+				38FF1ADE2C1AA3DC007176F4 /* CategoryDataModel.swift */,
 				3842C6402C1A04A400D8BFA9 /* AppDelegate.swift */,
 				380B5DC52C19A1EA00D23C05 /* LocationDataModel.swift */,
 				3828B93E2C16CF7E00B3B85B /* QRScannerView.swift */,
@@ -176,6 +179,7 @@
 				386220FF2C142F49006F5D85 /* Smaaker1App.swift in Sources */,
 				3828B93D2C16CF5000B3B85B /* QRViewController.swift in Sources */,
 				3842C6412C1A04A400D8BFA9 /* AppDelegate.swift in Sources */,
+				38FF1ADF2C1AA3DC007176F4 /* CategoryDataModel.swift in Sources */,
 				38E02DA22C1955AB0099028D /* MerchantDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

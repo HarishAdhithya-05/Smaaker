@@ -1,10 +1,45 @@
 import SwiftUI
 
-struct NextView: View {
-    @State private var searchText: String = ""
-    @State private var selectedCategoryIndex: Int?
-    let foodCategories = ["Burger", "Chicken", "Coffee", "Pizza", "Pasta", "Salad", "Dessert"]
+import Foundation
+
+struct FoodCategory: Identifiable, Codable {
+    let id: String
+    let name: String
+    let categoryName : String
+    // Add other properties if needed
+}
+
+struct APIResponse: Codable {
+    let categories: [FoodCategory]
+}
+import SwiftUI
+import Combine
+
+class FoodCategoryViewModel: ObservableObject {
+    @Published var foodCategories: [FoodCategory] = []
+    @Published var selectedCategoryIndex: Int?
+
+    private var cancellables = Set<AnyCancellable>()
     
+    func fetchCategories() {
+        guard let url = URL(string: "https://2ybh8dang0.execute-api.ap-southeast-2.amazonaws.com/dev/merchant/master/allitems/smaaker-4574-a7bc-0bdd/LP960V7BZ3Y61") else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: APIResponse.self, decoder: JSONDecoder())
+            .map { $0.categories }
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.foodCategories, on: self)
+            .store(in: &cancellables)
+    }
+}
+import SwiftUI
+
+struct NextView: View {
+    @StateObject private var viewModel = FoodCategoryViewModel()
+    @State private var searchText: String = ""
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -31,14 +66,14 @@ struct NextView: View {
                     // Replace FoodCategoryButton with ScrollView
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
-                            ForEach(foodCategories.indices, id: \.self) { index in
+                            ForEach(viewModel.foodCategories.indices, id: \.self) { index in
                                 Button(action: {
                                     withAnimation {
-                                        selectedCategoryIndex = index
+                                        viewModel.selectedCategoryIndex = index
                                         proxy.scrollTo(index)
                                     }
                                 }) {
-                                    Text(foodCategories[index])
+                                    Text(viewModel.foodCategories[index].name)
                                         .padding(.horizontal, 12)
                                         .padding(.vertical, 8)
                                         .background(Color.white.opacity(0.2))
@@ -53,8 +88,8 @@ struct NextView: View {
                 }
                 .padding(.horizontal)
                 
-                if let index = selectedCategoryIndex {
-                    if index < foodCategories.count {
+                if let index = viewModel.selectedCategoryIndex {
+                    if index < viewModel.foodCategories.count {
                         Image("Image \(index + 1)")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -66,44 +101,44 @@ struct NextView: View {
             Spacer()
         }
         .navigationBarTitle("Next Page", displayMode: .inline)
+        .onAppear {
+            viewModel.fetchCategories()
+        }
     }
 }
-// UIViewRepresentable for UITextField
+
+// Dummy SearchBar implementation for completeness
 struct SearchBar: UIViewRepresentable {
-    class Coordinator: NSObject, UITextFieldDelegate {
+    @Binding var text: String
+
+    class Coordinator: NSObject, UISearchBarDelegate {
         @Binding var text: String
 
         init(text: Binding<String>) {
             _text = text
         }
 
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            text = textField.text ?? ""
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
         }
     }
-
-    @Binding var text: String
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(text: $text)
     }
 
-    func makeUIView(context: Context) -> UITextField {
-        let textField = UITextField()
-        textField.placeholder = "Search..."
-        textField.backgroundColor = .white
-        textField.layer.cornerRadius = 8
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.setLeftPaddingPoints(10)
-        textField.delegate = context.coordinator
-        return textField
+    func makeUIView(context: Context) -> UISearchBar {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.delegate = context.coordinator
+        return searchBar
     }
 
-    func updateUIView(_ uiView: UITextField, context: Context) {
+    func updateUIView(_ uiView: UISearchBar, context: Context) {
         uiView.text = text
     }
 }
+
+
 // Add your SwiftUI view extension
 extension UITextField {
     func setLeftPaddingPoints(_ amount: CGFloat) {
